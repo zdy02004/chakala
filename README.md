@@ -94,7 +94,7 @@
 
 ## 三、部署
 ### 3.1 下载部署
-**程序 centOS 版，下载 https://github.com/zdy02004/chakala/release/ 下的所有文件
+**程序 centOS 版，下载 https://github.com/zdy02004/chakala/release/ 下的所有文件**
 
 解压 unzip chakala_go.zip 
 
@@ -1196,6 +1196,7 @@ form-data 为 file 类型
 
 
 **注：最大支持上传 200M 大小的文件**
+
 ## 十七、下载文件
 name = 'test_donwload'  二级域名为 test_donwload
 method_type = 1      GET 请求
@@ -1480,7 +1481,7 @@ function main(tab) {
 }
 ```
 
-**注：其中 main 为主函数，必须写，tab 代表 get_value 中各种取值变量 **
+**注：其中 main 为主函数，必须写，tab 代表 get_value 中各种取值变量**
 
 out_put 配置为
 ```json
@@ -1517,7 +1518,7 @@ get_value 配置为
 { "Header":{ "head1":{"key":"key1","val":"val1" },"head2":{"key":"key2","val":"val2" }} }
 ```
 
-**注：其中 Header 表示要设置响应头，变量里面的 key 代表 http header中的 key，变量里面的 val 代表 http heade r中的 val **
+**注：其中 Header 表示要设置响应头，变量里面的 key 代表 http header中的 key，变量里面的 val 代表 http heade r中的 val**
 out_put 配置为
 ```json
 {"head1": "${head1}"}
