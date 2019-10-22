@@ -94,7 +94,7 @@
 
 ## 三、部署
 ### 3.1 下载部署
-**下载程序 centOS 版，https://github.com/zdy02004/chakala/release/chakala_go.zip
+**程序 centOS 版，下载 https://github.com/zdy02004/chakala/release/ 下的所有文件
 
 解压 unzip chakala_go.zip 
 
@@ -238,10 +238,15 @@ CREATE UNIQUE INDEX if not exists ON chakala_config (name);
 
 配置表
 id 自行配置
+
 name = 'chakala_list'
+
 method_type = 1
+
 valid 配置 ''
+
 get_value  配置如下：
+
 ```json
 {
 "sql":{
@@ -282,7 +287,6 @@ SELECT -3, now(), now(), now(), 'chakala_list'
 ```
 
 重启程序后测试执行 ` curl 10.19.xxx.xxx:8000/chakala_list`
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-18/5d820e358f2cc.png)
 
 ### 4.3 配置执行sql，接口为POST方式传参
 
@@ -376,12 +380,12 @@ SELECT 2, now(), now(), now(), 'channel',2,
 curl 10.19.xxx.xxx:8000/channel -X POST -H "Content-Type:application/json" -d '{"userid":"name" , "channel_id":"471578910","channel_id2":"471579910"}'
 ```
 
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d82617b8c89a.png)
-
 ### 4.4 配置执行Insert语句，接口为POST方式传参
 
 name = 'chakala_insert'  二级域名为 chakala_insert
+
 method_type = 2        post方式
+
 valid 配置如下：
 ```json
 {
@@ -620,7 +624,7 @@ select -4,now(),now(),now(),'chakala_upsert',2,
 }
 ```
 
-**注：这里使用了 PostGreSql 的 upsert 特性，不存在记录则插入，存在记录则update。不了解请自行百度 upsert 。**
+**注：这里使用了 PostGreSql 的 upsert 特性，不存在记录则插入，存在记录则update。不了解请自行百度 upsert**
 
 ### 4.7 row_2_json 案例
 
@@ -707,8 +711,9 @@ select 24,now(),now(),now(),'test_row_2_json',1,
 ### 6.1 配置执行 redis 指令，接口为GET方式
 
 name = 'test_redis'  二级域名为 test_redis
-method_type = 1        get 方式
+method_type = 1      get 方式
 valid 配置如下：
+
 ```json
 {
 "method_type":{
