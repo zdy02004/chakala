@@ -94,9 +94,9 @@
 ### 3.1 下载部署
 **下载程序 centOS 版，https://github.com/zdy02004/chakala/release/chakala_go.zip
 
-unzip chakala_go.zip
+解压 unzip chakala_go.zip 
 
-填写配置文件 conf.cfg
+填写配置文件 conf.cfg 
 
 ```bash
 #程序所在目录，可不配
@@ -141,6 +141,7 @@ expire_times=15000
 ### 3.2 编译环境搭建
 
 安装 go 语言环境参考 https://www.jianshu.com/p/b2222fc04f47
+
 安装依赖库
 ```shell
 go get github.com/jinzhu/gorm
@@ -804,7 +805,7 @@ get_value  配置如下：
 "SSH":{
 "user":{
 "user":"work",
-"pwd": "CtK8PSWUVrIDF6vq1j/Pbg==",
+"pwd": "XXXXXSWXXXIDFXXXXj/PbgXX",
 "addr": "10.1.xxx.xxx:22",
 "cmd":"${userid}"
 }
@@ -813,7 +814,7 @@ get_value  配置如下：
 
 **注：其中 SSH 为 ssh 动作类型
 	  "user"："work" 是配置 ssh 登录用户名
-     "pwd": "CtK8PSWUVrIDF6vq1j/Pbg==" 是配置ssh登录密码，密码是在服务端会用 aes 算法解密，密钥为配置文件中的 aeskey
+     "pwd": "XXXXXSWXXXIDFXXXXj/PbgXX" 是配置ssh登录密码，密码是在服务端会用 aes 算法解密，密钥为配置文件中的 aeskey
      "addr": "10.1.xxx.xxx:22" 是配置 ssh 登录主机ip和端口
      "cmd":"${userid}" 是在远端执行的shell命令**
 
@@ -824,7 +825,6 @@ out_put 配置如下：
 重启程序后测试执行，使用浏览器访问
    http://10.19.xxx.xxx:8000/ssh_test?userid=free -g
 观察返回值
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d832b1dd51fd.png)
 
 ## 十、AES 加密接口服务
 
@@ -854,7 +854,6 @@ out_put 配置如下：
 {"userid" : "${user}" }
 ```
 重启程序后测试执行，使用 post 访问
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d832fd8d98a9.png)
 
 ## 十一、AES 解密接口服务
 
@@ -884,7 +883,6 @@ out_put 配置如下：
 {"userid" : "${user}" }
 ```
 重启程序后测试执行，使用 post 访问
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d8330f92ffda.png)
 
 ## 十二、服务端调用其他 GET 接口
 
@@ -967,7 +965,6 @@ out_put 配置如下：
 ```shell
  curl 10.19.xxx.xxx:8000/test_post -X POST -H "Content-Type:application/json" -d '{"userid":"name" , "channel_id":"471578910","channel_id2":"471579910"}'
 ```
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d833f163f4e9.png)
 
 ## 十四、代理静态 html 页面
 
@@ -1008,7 +1005,6 @@ out_put 配置 '' 空
 
 重启程序后测试执行，使用浏览器访问
 10.19.xxx.xxx:8000/test_html/aa.html
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d8343d1ee56d.png)
 
 ## 十五、登录
 
@@ -1057,7 +1053,7 @@ out_put 配置
 10.19.xxx.xxx:8000/test_login?name=a&phone=13893654380
 ```
 打开浏览器开发者模式查看 cookie
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d8347e120e62.png)
+
 
 ### 15.2 登出
 name = 'test_logout'  二级域名为 test_logout
@@ -1145,11 +1141,9 @@ get_value 配置为
 **注：其中 Upload 表示上传动作类型，key为form表单汇总的key值，path 为上传文件的存储目录。**
 Content-Type 为 application/x-www-form-urlencoded
 form-data 为 file 类型
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d834b5cdc915.png)
 
-##### 上传成功！
 
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d834f8b1d2f5.png)
+
 **注：最大支持上传 200M 大小的文件**
 ## 十七、下载文件
 name = 'test_donwload'  二级域名为 test_donwload
@@ -1177,7 +1171,7 @@ insert into public.chakala_config select 17,now(),now(),now(),'test_donwload',1,
 **注：其中 Download 表示下载动作类型，key为要下载的文件名，path 为下载文件的存储目录。**
 response 的 Content-Disposition 为 "attachment; filename=xxxx"
 ##### 下载成功！
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-19/5d83a5dca0db5.png)
+
 ## 十八、JWT鉴权
 ### 18.1 申请 token
 name = 'request_token'  二级域名为 request_token
@@ -1214,7 +1208,7 @@ now(),
 1,'';
 ```
 重启程序后测试执行，使用GET访问
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-20/5d849c7c78da4.png)
+
 
 ### 18.2 token 鉴权
 name = 'check_token'  二级域名为 check_token
@@ -1250,7 +1244,7 @@ insert into public.chakala_config
  1, '';
 ```
 重启程序后测试执行，使用GET访问
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-09-20/5d849de74e84e.png)
+
 
 ## 十九、接口访问权限
 
@@ -1493,4 +1487,4 @@ now(),
 1,'';
 ```
 测试： http://10.19.xxX.XXX:8000/test_head
-![](http://10.1.235.103:4999/server/../Public/Uploads/2019-10-22/5daea01984d21.png)
+
