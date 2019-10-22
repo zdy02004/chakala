@@ -29,13 +29,13 @@
 
 **Memcache 连接池**：github.com/bradfitz/gomemcache/memcache 
 
-**权限管理框架 casbin **：github.com/casbin/casbin 
+**权限管理框架 casbin**：github.com/casbin/casbin 
 
-**casbin 策略持久化库 **：github.com/casbin/gorm-adapter 
+**casbin 策略持久化库**：github.com/casbin/gorm-adapter 
 
-**javascript 执行解释器 **：github.com/robertkrimen/otto 
+**javascript 执行解释器**：github.com/robertkrimen/otto 
 
-**图片验证码框架 **：github.com/dchest/captcha 
+**图片验证码框架**：github.com/dchest/captcha 
 
 ### 1.4 功能概述
     自定义登录，采用单机内存中的 Session 方式，适合浏览器端使用,支持带图片验证码的登录.
@@ -78,10 +78,10 @@
 ```json
 {
 "动作类型"：{
-			"变量名"：{
-					"属性":"值或取值方式"
-					}
-		}
+		"变量名"：{
+			"属性":"值或取值方式"
+			 }
+	    }   
 }
 ```
 **动作类型：** 指程序的功能，例如，执行sql，执行 redis 命令，执行本地命令等。
@@ -152,8 +152,32 @@ last_active int(10) NOT NULL DEFAULT '0',
 
 create index last_active on session (last_active);
 ```
+然后进入 postgresql 中执行
 
-启动程序 nohup ./restart.sh & **
+```sql
+CREATE TABLE chakala_config (
+    id INT8 NOT NULL DEFAULT unique_rowid(),   --  id
+    created_at TIMESTAMPTZ NULL,               --  创建时间
+    updated_at TIMESTAMPTZ NULL,               --  修改时间
+    deleted_at TIMESTAMPTZ NULL,               --  删除时间
+    name STRING NULL,                          --  url二级域名
+    method_type INT8 NULL,                     --  请求类型：1 GET，2 POST,3 下载文件
+    valid STRING NULL,                         --  入参校验 json 配置串
+    get_value STRING NULL,                      --  取值 json 配置串
+    js_script STRING NULL,                      --  javascript 交互脚本
+    out_put STRING NULL,                        --  出参报文 json 模板
+    is_use INT8 NULL,                           --  是否在用，1 是 ，0 否
+    re_mark STRING NULL,                        -- 备注
+    CONSTRAINT "primary" PRIMARY KEY (id ASC),  --  主键 id
+    INDEX idx_chakala_config_deleted_at (deleted_at ASC),
+    UNIQUE INDEX chakala_config_name_key (name ASC), -- 唯一约束 name
+    FAMILY "primary" (id, created_at, updated_at, deleted_at, name, method_type, valid, get_value, out_put, is_use，re_mark)
+);
+
+CREATE UNIQUE INDEX if not exists ON chakala_config (name);
+```
+
+启动程序 nohup ./restart.sh & 
 
 ### 3.2 编译环境搭建
 
@@ -195,15 +219,18 @@ CREATE TABLE chakala_config (
     method_type INT8 NULL,                     --  请求类型：1 GET，2 POST,3 下载文件
     valid STRING NULL,                         --  入参校验 json 配置串
     get_value STRING NULL,                      --  取值 json 配置串
-	js_script STRING NULL,                      --  javascript 交互脚本
+    js_script STRING NULL,                      --  javascript 交互脚本
     out_put STRING NULL,                        --  出参报文 json 模板
     is_use INT8 NULL,                           --  是否在用，1 是 ，0 否
-	re_mark STRING NULL,                         -- 备注
+    re_mark STRING NULL,                        -- 备注
     CONSTRAINT "primary" PRIMARY KEY (id ASC),  --  主键 id
     INDEX idx_chakala_config_deleted_at (deleted_at ASC),
     UNIQUE INDEX chakala_config_name_key (name ASC), -- 唯一约束 name
     FAMILY "primary" (id, created_at, updated_at, deleted_at, name, method_type, valid, get_value, out_put, is_use，re_mark)
-)
+);
+
+CREATE UNIQUE INDEX if not exists ON chakala_config (name);
+
 ```
 ### 4.2 配置执行sql，接口为GET方式,不传参数
 
