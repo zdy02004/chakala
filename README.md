@@ -138,6 +138,21 @@ SigningKey=c48iuheO9_l
 # JWT token 有效期时间
 expire_times=15000
 ```
+```shell
+sqlite3 session.db
+```
+
+```sql
+CREATE TABLE session (
+ session_id varchar(64) NOT NULL DEFAULT '',
+ contents TEXT NOT NULL,
+last_active int(10) NOT NULL DEFAULT '0',
+ PRIMARY KEY (session_id)
+);
+
+create index last_active on session (last_active);
+```
+
 启动程序 nohup ./restart.sh & **
 
 ### 3.2 编译环境搭建
