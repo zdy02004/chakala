@@ -177,6 +177,8 @@ CREATE TABLE chakala_config (
 CREATE UNIQUE INDEX if not exists ON chakala_config (name);
 ```
 
+系统默认自带接口与部分测试接口参考 chakala.sql
+
 启动程序 nohup ./restart.sh & 
 
 ### 3.2 编译环境搭建
