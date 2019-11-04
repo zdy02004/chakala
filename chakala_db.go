@@ -538,7 +538,8 @@ func real_main() {
 				//入参值替换 valid
 				valid_replace = strings.Replace(valid_replace, "${"+k+"}", v, -1)
 			}
-
+      //获得日期全局变量值
+      get_date(&valid_replace)
 			log.Println("valid_replace: ", valid_replace)
 			//校验json字符串转map
 			err1 := json.Unmarshal([]byte(valid_replace), &valid_map)
@@ -546,6 +547,8 @@ func real_main() {
 				log.Println("valid_map is not json:==>> ", err1)
 				//break
 			}
+      //获得日期全局变量值
+			get_date(&get_value_replace)
 			log.Println("get_value_replace: " + get_value_replace)
 			//入参字符串转map
 			err2 := json.Unmarshal([]byte(get_value_replace), &get_value_map)
