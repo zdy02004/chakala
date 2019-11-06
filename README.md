@@ -1614,4 +1614,18 @@ ${p40minut}  -- 40分钟前
 ${p45minut}  -- 45分钟前
 ${p50minut}  -- 50分钟前
 ${p55minut}  -- 55分钟前
+${firstOfMonth}   -- 当月第一天
+${lastOfMonth}    -- 当月最后一天
+${firstOf1Month}  -- 上月第一天
+${lastOf1Month}   -- 上月最后一天
+${firstOf2Month}  -- 上上月第一天
+${lastOf2Month}   -- 上上月最后一天
+${firstOf3Month}  -- 三个月前第一天
+${lastOf3Month}   -- 三个月前最后一天
+${firstOf4Month}  -- 四个月前第一天
+${lastOf4Month}   -- 四个月前最后一天
+${firstOf5Month}  -- 五个月前第一天
+${lastOf5Month}   -- 五个月前最后一天
+${firstOf6Month}  -- 六个月前第一天
+${lastOf6Month}   -- 六个月前最后一天
 ```
