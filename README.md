@@ -37,6 +37,8 @@
 
 **图片验证码框架**：github.com/dchest/captcha 
 
+**高性能json库**：github.com/json-iterator/go 
+
 ### 1.4 功能概述
     自定义登录，采用单机内存中的 Session 方式，适合浏览器端使用,支持带图片验证码的登录.
 	基于casbin实现的RBAC的接口权限管控
