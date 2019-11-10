@@ -201,6 +201,7 @@ go get github.com/casbin/casbin
 go get github.com/casbin/gorm-adapter
 go get github.com/robertkrimen/otto
 go get github.com/dchest/captcha
+go get github.com/json-iterator/go
 ```
 下载程序包
 git clone https://github.com/zdy02004/chakala.git
