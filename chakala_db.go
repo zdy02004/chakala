@@ -2,7 +2,8 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
+//	"encoding/json"
+	"github.com/json-iterator/go"
 	"fmt"
 	"github.com/bradfitz/gomemcache/memcache"
 	"github.com/buaazp/fasthttprouter"
@@ -33,6 +34,7 @@ import (
 	"runtime"
 )
 
+var json = jsoniter.ConfigCompatibleWithStandardLibrary
 // 默认的 session 全局配置
 var session = fasthttpsession.NewSession(fasthttpsession.NewDefaultConfig())
 var sys_session = fasthttpsession.NewSession(fasthttpsession.NewDefaultConfig())
