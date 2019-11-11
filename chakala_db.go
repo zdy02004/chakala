@@ -2,8 +2,7 @@ package main
 
 import (
 	"bytes"
-//	"encoding/json"
-	"github.com/json-iterator/go"
+	"encoding/json"
 	"fmt"
 	"github.com/bradfitz/gomemcache/memcache"
 	"github.com/buaazp/fasthttprouter"
@@ -34,7 +33,6 @@ import (
 	"runtime"
 )
 
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
 // 默认的 session 全局配置
 var session = fasthttpsession.NewSession(fasthttpsession.NewDefaultConfig())
 var sys_session = fasthttpsession.NewSession(fasthttpsession.NewDefaultConfig())
@@ -350,7 +348,7 @@ func real_main() {
 
 	var records []record
 	//获得配置记录
-	db.Table("chakala_config").Select("id,name,method_type,valid,get_value,js_script,out_put,is_use").Where("is_use > ?", -1).Scan(&records)
+	db.Table("chakala_config").Select("id,name,method_type,valid,get_value,js_script,out_put,is_use,re_mark").Where("is_use > ?", -1).Scan(&records)
 
 	// chakala_list 接口专用数据结构
 	length := len(records)
