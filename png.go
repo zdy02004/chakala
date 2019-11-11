@@ -11,7 +11,7 @@ import (
 
 func getCaptchaId(ctx *fasthttp.RequestCtx) {
 	ctx.Response.Header.Set("content-type", "application/json") //·µ»ي�½ˇjson
-	ctx.Write([]byte("{\"CaptchaId\":" + "\""+captcha.New()+"}\"") )
+	ctx.Write([]byte("{\"CaptchaId\":" + "\""+captcha.New()+"\"}") )
 	return
 }
 
@@ -75,4 +75,3 @@ func ServePNG(ctx *fasthttp.RequestCtx) {
 	}
   servePnghttp(ctx, id, ext) 
 }
-
