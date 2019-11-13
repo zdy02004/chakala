@@ -1440,6 +1440,11 @@ func real_main() {
 			}
 			
 			log.Println("======================= 3、Run JavaScript ========================\n")
+			//将入参值并入出参 map ，并加前缀 _input_
+			for k, v := range params_map {
+				get_value_result["_input_"+k] = v
+			}
+			
 			log.Println("get_value_result: ", get_value_result)
 			if len(jscript) > 0 {
 				//javascript 解释器初始化
