@@ -1484,7 +1484,7 @@ function main(tab) {
 }
 ```
 
-**注：其中 main 为主函数，必须写，tab 代表 get_value 中各种取值变量**
+**注：其中 main 为主函数，必须写，tab 代表 get_value 中各种取值变量，${_input_入参变量}  代表入参中的变量**
 
 out_put 配置为
 ```json
