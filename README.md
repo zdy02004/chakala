@@ -39,6 +39,7 @@
 
 **高性能json库**：github.com/json-iterator/go 
 
+**平滑重启库**：github.com/facebookgo/grace/gracenet
 ### 1.4 功能概述
     自定义登录，采用单机内存中的 Session 方式，适合浏览器端使用,支持带图片验证码的登录.
 	基于casbin实现的RBAC的接口权限管控
@@ -181,7 +182,7 @@ CREATE UNIQUE INDEX if not exists ON chakala_config (name);
 
 系统默认自带接口与部分测试接口参考 chakala.sql
 
-启动程序 nohup ./restart.sh & 
+启动程序  ./start.sh
 
 ### 3.2 编译环境搭建
 
@@ -202,6 +203,7 @@ go get github.com/casbin/gorm-adapter
 go get github.com/robertkrimen/otto
 go get github.com/dchest/captcha
 go get github.com/json-iterator/go
+go get github.com/facebookgo/grace/gracenet
 ```
 下载程序包
 git clone https://github.com/zdy02004/chakala.git
