@@ -31,6 +31,7 @@ import (
 	"github.com/casbin/gorm-adapter"
 	"net"
 	"runtime"
+	"github.com/facebookgo/grace/gracenet"
 )
 
 // 默认的 session 全局配置
@@ -102,6 +103,7 @@ type ChakalaList struct {
 	GetValue   map[string]map[string]interface{}
 	JsScript   string
 	OutPut     map[string]interface{}
+	//OutPut     string
 	IsUse      int
 	ReMark     string
 }
@@ -1563,6 +1565,11 @@ func real_main() {
 				//c <- 1
 
 				go func() {
+					var n gracenet.Net
+					_ ,err := n.StartProcess() 
+					if err != nil {
+					log.Print("Net.StartProcess() err is ",err )
+					}	
 					log.Println("Listener.Close() .... ")
 
 					err = Listener.Close()
@@ -1629,17 +1636,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	//c := make(chan int)
-	//defer close(c)
-	//real_main()
-	//for{
-	////k := <- c
-	//log.Println("Restart " )
-	//for {
 	real_main()
-	//}
-	//log.Println("nohup "+gloable_program_name+" -later 1 &")
-	//Shellout("nohup "+gloable_program_name+" -later 1 &")
-	//os.Exit(-5)
-	// }
 }
