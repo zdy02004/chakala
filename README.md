@@ -186,7 +186,8 @@ CREATE UNIQUE INDEX if not exists ON chakala_config (name);
 
 ### 3.2 编译环境搭建
 
-安装 go 语言环境参考 http://blog.kkksos.com/2018/09/23/15.html 
+安装 go 语言环境参考:http://blog.kkksos.com/2018/09/23/15.html 
+
 yum install glibc-static -y
 rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
 curl -s https://mirror.go-repo.io/centos/go-repo.repo | tee /etc/yum.repos.d/go-repo.repo
