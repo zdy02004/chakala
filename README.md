@@ -186,7 +186,11 @@ CREATE UNIQUE INDEX if not exists ON chakala_config (name);
 
 ### 3.2 编译环境搭建
 
-安装 go 语言环境参考 https://www.jianshu.com/p/b2222fc04f47
+安装 go 语言环境参考 http://blog.kkksos.com/2018/09/23/15.html 
+yum install glibc-static -y
+rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+curl -s https://mirror.go-repo.io/centos/go-repo.repo | tee /etc/yum.repos.d/go-repo.repo
+yum install golang
 
 安装依赖库
 ```shell
@@ -194,7 +198,8 @@ go get github.com/jinzhu/gorm
 go get github.com/jinzhu/gorm/dialects/postgres
 go get github.com/valyala/fasthttp
 go get github.com/buaazp/fasthttprouter
-go get github.com/phachon/fasthttpsession github.com/phachon/fasthttpsession/memory
+go get github.com/phachon/fasthttpsession 
+go get github.com/phachon/fasthttpsession/memory
 go get github.com/dgrijalva/jwt-go
 go get github.com/zdy02004/redis-go-cluster
 go get github.com/bradfitz/gomemcache/memcache
@@ -209,7 +214,7 @@ go get github.com/facebookgo/grace/gracenet
 git clone https://github.com/zdy02004/chakala.git
 然后进入源码文件夹,执行编译
 ```shell
-go build
+go build -ldflags '-linkmode "external" -extldflags "-static"'
 ```
 
 ## 四、数据库增删改查
